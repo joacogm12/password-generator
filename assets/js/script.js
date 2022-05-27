@@ -137,7 +137,7 @@ function criterias(){
         alert("please use yes or no as an answer");
       }
     } while (criteria[3] != "no" && criteria[3] != "yes");
-
+    
     //pregunta si quieres numbers y verifica que introduscas una respuesta valida
     do {
       criteria[4] = prompt("do you want to include numbers in your passsword? yes or no");
