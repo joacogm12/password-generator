@@ -25,7 +25,7 @@ function generatePassword() {
   let bandera = true;
   let option = 0;
 
-  // filtra lo que no quieres en tu contraseña
+  // filters what you don´t need in your password
   for (let i = 1; i < 5; i++) {
     if (criteria[i] == "yes") {
       filtrar[numfiltrar] = i;
@@ -38,16 +38,16 @@ function generatePassword() {
     numfiltrar = 0;
     checar = [];
 
-    //este ciclo se hace tantas veces como caracteres pidas en tu contraseña
+    //this cicle repeats itself as many times as the length you input
     do {  
 
-      //crea un numero trandom que lleva al switch donde se genera el caracter para la contraseña
+      //generates a random number that enters the switch to generate a character
       option = Math.floor((Math.random() * (filtrar.length)));
 
-      //checar es un arreglo que almacena los random para verificar que la contraseña tenga todo lo solicitado por el usuario
+      //checar is an array that stores the random to verify that the password has everything requested by the user
       checar[numfiltrar] = filtrar[option];
 
-      //cada case genera diferentes tipos de caracteres aleatorios
+      //each case generates a different type of character
       switch (filtrar[option]) {
 
         case 1: //lowercase
@@ -73,7 +73,7 @@ function generatePassword() {
     } while (numfiltrar < criteria[0]);
 
 
-    // aqui se recorre la arreglo checar para verificar que la contraseña contengo todo lo solicitado
+    //verifies that the password has the necessary requirements by checking checar
     for (let i = 0; i < filtrar.length; i++) {
       for (let j = 0; j < checar.length; j++) {
         if (filtrar[i] == checar[j]) {
@@ -99,7 +99,7 @@ function criterias(){
   var contador = 0;
   var bandera = true;
 
-  //se pide la cantidad de caracteres y se valida que este dentro del rango permitido
+  //ask for the length of the password and validates that the value is correct
   do{
     criteria[0] = prompt("choose a length of at least 8 characters and no more than 128 characters");
 
@@ -111,10 +111,10 @@ function criterias(){
 
   }while(bandera);
 
-  //este do while pregunta y verifica que al menos seleccionaste una de las criterias 
+  //the do while verifies that at least one option is selected
   do{
 
-    //pregunta si quieres lowercase characters y verifica que introduscas una respuesta valida
+    //asks if the user wants lowercase and verifies if the value is correct
     do {
       criteria[1] = prompt("do you want to include lowercase characters in your passsword? yes or no");
       if (criteria[1] != "no" && criteria[1] != "yes") {
@@ -122,7 +122,7 @@ function criterias(){
       }
     } while (criteria[1] != "no" && criteria[1] != "yes");
 
-    //pregunta si quieres uppercase characters y verifica que introduscas una respuesta valida
+    //asks if the user wants uppercase and verifies if the value is correct
     do {
       criteria[2] = prompt("do you want to include uppercase characters in your passsword? yes or no");
       if (criteria[2] != "no" && criteria[2] != "yes") {
@@ -130,7 +130,7 @@ function criterias(){
       }
     } while (criteria[2] != "no" && criteria[2] != "yes");
 
-    //pregunta si quieres special characters y verifica que introduscas una respuesta valida
+    //asks if the user wants special characters and verifies if the value is correct
     do {
       criteria[3] = prompt("do you want to include special characters in your passsword? yes or no");
       if (criteria[3] != "no" && criteria[3] != "yes") {
@@ -138,7 +138,7 @@ function criterias(){
       }
     } while (criteria[3] != "no" && criteria[3] != "yes");
     
-    //pregunta si quieres numbers y verifica que introduscas una respuesta valida
+    //asks if the user wants numbers and verifies if the value is correct
     do {
       criteria[4] = prompt("do you want to include numbers in your passsword? yes or no");
       if (criteria[4] != "no" && criteria[4] != "yes") {
@@ -146,7 +146,7 @@ function criterias(){
       }
     } while (criteria[4] != "no" && criteria[4] != "yes");
 
-    //verifica que se seleccione minimo una de las criterias de no ser asi repite de do while
+    //verifies that at least one value is selected
     if(criteria[1] == "no" && criteria[2] == "no" && criteria[3] == "no" && criteria[4] == "no"){
       alert("at least one character type should be selected")
     }else{
